@@ -46,7 +46,7 @@ $answer  = $data['answer'] ?? null;
     <title>Opdracht 6A – GET vs POST</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="/project/css/assignment7.css">
+    <link rel="stylesheet" href="../css/assignment7.css">
 </head>
 <body>
 
@@ -100,10 +100,9 @@ $answer  = $data['answer'] ?? null;
                 <option value="no"  <?= $answer === "no"  ? 'selected' : '' ?>>Nee</option>
             </select>
 
-            <!-- BONUS: voeg een extra input toe en zie hoe $_GET/$_POST uitbreidt
+            <!-- BONUS: voeg een extra input toe en zie hoe $_GET/$_POST uitbreidt -->
             <label for="player_name">Jouw naam (bonus)</label>
-            <input id="player_name" name="player_name" type="text" placeholder="bijv. Yunus">
-            -->
+            <input id="player_name" name="player_name" type="text" placeholder="bijv. Yunus" required>
 
             <div style="margin-top: 12px;">
                 <button type="submit">Verstuur (<?= strtoupper(h($mode)) ?>)</button>
@@ -192,6 +191,7 @@ $answer  = $data['answer'] ?? null;
 
             <h3>2.4 “Wie is het?” hint (nog géén spel)</h3>
             <p>
+                Naam: <strong><?php echo $mode === "post" ? $_POST["player_name"] : $_GET["player_name"]?> <br></strong>
                 Vraag: <strong><?= h($featureLabels[$feature] ?? (string)$feature) ?></strong><br>
                 Antwoord: <strong><?= $answer === "yes" ? "Ja" : "Nee" ?></strong>
             </p>
