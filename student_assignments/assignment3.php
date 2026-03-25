@@ -2,7 +2,7 @@
     require_once __DIR__ . '/../includes/load_data.php';
     $characterDataset = load_data();
 
-$current = "man";
+$current = "woman";
 
 echo "{$current}: <br>";
 
